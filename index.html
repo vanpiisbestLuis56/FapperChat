@@ -1,21 +1,59 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi App</title>
+    <title>FapperChat</title>
     <style>
         body {
-            background-color: #E53935;
+            background-color: #E53935; /* Red theme to match your APK */
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 50px;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <h1>¡Bienvenido a mi App!</h1>
-    <p>Mi contenido está cargando aquí...</p>
+
+    <div class="container">
+        <h1 id="title">Loading...</h1>
+        <p id="message">Detecting language...</p>
+    </div>
+
+    <script>
+        // Detect browser or device language
+        const userLang = navigator.language || navigator.userLanguage;
+
+        // Elements
+        const titleEl = document.getElementById("title");
+        const messageEl = document.getElementById("message");
+
+        // Check if the language starts with "es" (Spanish)
+        if (userLang.startsWith("es")) {
+            // SPANISH CONTENT
+            titleEl.textContent = "¡Bienvenido a FapperChat!";
+            messageEl.textContent = "Tu aplicación se ha cargado correctamente en español.";
+        } else {
+            // DEFAULT / ENGLISH CONTENT
+            titleEl.textContent = "Welcome to FapperChat!";
+            messageEl.textContent = "Your app has loaded successfully in English.";
+        }
+    </script>
+
 </body>
 </html>
